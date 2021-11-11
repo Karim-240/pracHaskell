@@ -25,11 +25,11 @@ creaOcteto :: [Bit] -> [Bit]
 creaOcteto bs =  take 8 (bs ++ repeat 0)
  
 -- Funcion principal, recibe cadena, convierte caracteres en binario, complementa octeto y concatena los octetos 
-palabra ::  String ->  [Bit] 
+palabra ::  [Char] ->  [Bit] 
 palabra  =  concat.map(creaOcteto.int2bin.ord)
 
-encripta :: String -> String -> [Bit]
-encripta x y = opXor(palabra x palabra y)
+encripta :: [Char] -> [Char] -> [Bit]
+encripta pala contra = opXor (palabra pala) (palabra contra)
 
 
 opXor :: [Bit] -> [Bit] -> [Bit]
